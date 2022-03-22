@@ -1,33 +1,34 @@
 import java.util.Random;
 
-public class Client {
-    private int id;
-    private int tArrival;
-    private int tService;
+public class Client implements Comparable {
+    private String id;
+    private String tArrival;
+    private String tService;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int gettArrival() {
-        return tArrival;
+    public void setId( int id) {
+        this.id = Integer.toString(id);
     }
 
     public void settArrival(int tArrival) {
-        this.tArrival = tArrival;
-    }
-
-    public int gettService() {
-        return tService;
+        this.tArrival = Integer.toString(tArrival);
     }
 
     public void settService(int tService) {
-        this.tService = tService;
+        this.tService = Integer.toString(tService);
     }
+
+    public int getId() {
+        return Integer.parseInt(id);
+    }
+
+    public int gettArrival() {
+        return Integer.parseInt(tArrival);
+    }
+
+    public int gettService() {
+        return Integer.parseInt(tService);
+    }
+
    public int GenerateID(int n)
    {
        Random rand = new Random();
@@ -46,6 +47,11 @@ public class Client {
        Random rand = new Random();
        int arrival = rand.nextInt(tmax-tmin)+tmin;
        return arrival;
+   }
+   public int compareTo(Object x)
+   {
+       Client y = (Client) x;
+       return this.gettArrival()-y.gettArrival();
    }
 
 }
