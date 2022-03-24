@@ -1,16 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class UI extends JPanel {
     JTextField t1, t2, t3, t4, t5, t6, t7;
     JLabel l1, l2, l3, l4, l5, l6, l7;
-    JButton b = new JButton("START SIIMULATION");
-
+    JButton b = new JButton("START");
+    JComboBox<String> operator;
     public UI(int width, int height) {
         setLayout(null);
         setBackground(new Color(181, 241, 230, 171));
         setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.BLUE));
         setPreferredSize(new Dimension(width, height));
+        operator = new JComboBox<String>();
 
         t1 = new JTextField();
         t2 = new JTextField();
@@ -28,6 +30,9 @@ public class UI extends JPanel {
         l6 = new JLabel("Minimul service time");
         l7 = new JLabel("Maximum service time");
 
+        operator.addItem("SHORTEST_TIME");
+        operator.addItem("SHORTEST_QUEUE");
+
         add(t1);
         add(t2);
         add(t3);
@@ -44,6 +49,7 @@ public class UI extends JPanel {
         add(l6);
         add(l7);
         add(b);
+        add(operator);
 
         l1.setBounds(15, height - 480, width - 200, 23);
         t1.setBounds(15, height - 450, width - 400, 23);
@@ -60,7 +66,11 @@ public class UI extends JPanel {
         l7.setBounds(15, height - 120, width - 200, 23);
         t7.setBounds(15, height - 90, width - 400, 23);
         b.setBounds(15, height - 60, width - 200, 23);
+        operator.setBounds(15, height - 30, width - 200, 23);
 
 
+    }
+    void addComputeButton(ActionListener simp) {
+        b.addActionListener(simp);
     }
 }

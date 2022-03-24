@@ -32,9 +32,12 @@ public class Client implements Comparable {
    public int GenerateID(int n)
    {
        Random rand = new Random();
-       int i=rand.nextInt(n);
-       return i;
-
+       int i = rand.nextInt(n+1);
+       while(i==0)
+       {
+           i = rand.nextInt(n+1);
+       }
+      return i;
    }
    public int GenerateService(int smin,int smax)
    {

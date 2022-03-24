@@ -4,9 +4,19 @@ import java.util.concurrent.BlockingQueue;
 public class Server implements Runnable {
     private BlockingQueue<Client> clienti;
     private Integer waitingTime;
+    private int nrMaxClients;
 
-    public Server() {
-        clienti = new ArrayBlockingQueue<Client>(0);
+    public Integer getWaitingTime() {
+        return waitingTime;
+    }
+
+    public void setWaitingTime(Integer waitingTime) {
+        this.waitingTime = waitingTime;
+    }
+
+    public Server(int nrMaxClients) {
+        this.nrMaxClients = nrMaxClients;
+        clienti = new ArrayBlockingQueue<Client>(nrMaxClients);
         waitingTime = 0;
 
     }
@@ -23,6 +33,7 @@ public class Server implements Runnable {
                 Client c = clienti.take();
                 Thread.sleep(c.gettService());
                 waitingTime--;
+                System.out.println("WAITING!: "+ waitingTime);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

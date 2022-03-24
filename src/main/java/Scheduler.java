@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Scheduler {
@@ -8,13 +9,15 @@ public class Scheduler {
     }
 
     private int MaxServers;
-    private int MaxTask;
+    private int MaxClientsperServer;
     private Strategy strategy;
 
-    public Scheduler(int MaxServers, int MaxTask) {
+    public Scheduler(int MaxServers, int MaxClientsperServer) {
+        servers = new ArrayList<Server>();
         for (int i = 1; i < MaxServers; i++) {
-            Server s = new Server();
+            Server s = new Server(MaxClientsperServer);
             Thread t = new Thread(s);
+            t.start();
 
         }
     }
@@ -27,6 +30,7 @@ public class Scheduler {
     }
     public void dispatchClient(Client c)
     {
+        //System.out.println("In queue:" + c.getId()+" "+c.gettArrival()+" "+ c.gettService());
         strategy.addClient(servers,c);
     }
 
