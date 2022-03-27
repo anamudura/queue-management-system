@@ -166,7 +166,6 @@ public class SimulationManager implements Runnable {
         while (currentTime < simulationTime) {
             if (generatedClients.size() == 0)
                 break;
-            simul.t.setText("");
             System.out.println("Timp: " + currentTime);
             simul.t.append("Timp curent: " + currentTime + "\n");
             try {
@@ -207,10 +206,10 @@ public class SimulationManager implements Runnable {
                     }
                 if(i>=generatedClients.size())
                 {
-                    float average = scheduler.ComputeAverage(s);
-                    simul.t.append("Average waiting time:" + average + "\n");
+                    float average = scheduler.ComputeAveragePeak(s);
+                    simul.t.append("Average service time:" + average + "\n");
                     try {
-                        f.write("Average waiting time:" + average + "\n");
+                        f.write("Average service time:" + average + "\n");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -220,11 +219,11 @@ public class SimulationManager implements Runnable {
             }
             currentTime++;
             try {
-                Thread.sleep(1000);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-//
+            simul.t.setText("");
 
 
         }

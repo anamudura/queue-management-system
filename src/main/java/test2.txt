@@ -1,0 +1,323 @@
+
+Timp curent: 0
+ ID:26 Arrival:2 Service:1
+ ID:30 Arrival:2 Service:5
+ ID:37 Arrival:4 Service:1
+ ID:32 Arrival:5 Service:6
+ ID:33 Arrival:6 Service:1
+ ID:27 Arrival:7 Service:4
+ ID:12 Arrival:7 Service:1
+ ID:4 Arrival:10 Service:6
+ ID:8 Arrival:10 Service:5
+ ID:50 Arrival:10 Service:1
+ ID:50 Arrival:11 Service:4
+ ID:2 Arrival:12 Service:4
+ ID:7 Arrival:12 Service:1
+ ID:49 Arrival:13 Service:2
+ ID:17 Arrival:13 Service:1
+ ID:47 Arrival:14 Service:1
+ ID:1 Arrival:14 Service:5
+ ID:6 Arrival:14 Service:4
+ ID:38 Arrival:14 Service:6
+ ID:23 Arrival:14 Service:2
+ ID:43 Arrival:14 Service:1
+ ID:13 Arrival:15 Service:4
+ ID:11 Arrival:15 Service:4
+ ID:28 Arrival:17 Service:2
+ ID:39 Arrival:17 Service:2
+ ID:10 Arrival:18 Service:6
+ ID:3 Arrival:20 Service:6
+ ID:21 Arrival:20 Service:6
+ ID:25 Arrival:21 Service:6
+ ID:42 Arrival:21 Service:2
+ ID:48 Arrival:21 Service:5
+ ID:17 Arrival:22 Service:4
+ ID:45 Arrival:22 Service:2
+ ID:1 Arrival:22 Service:1
+ ID:44 Arrival:24 Service:1
+ ID:40 Arrival:25 Service:4
+ ID:37 Arrival:26 Service:2
+ ID:16 Arrival:29 Service:4
+ ID:19 Arrival:29 Service:3
+ ID:27 Arrival:29 Service:5
+ ID:20 Arrival:31 Service:4
+ ID:47 Arrival:31 Service:2
+ ID:14 Arrival:32 Service:3
+ ID:41 Arrival:33 Service:3
+ ID:3 Arrival:35 Service:5
+ ID:24 Arrival:37 Service:4
+ ID:46 Arrival:37 Service:2
+ ID:22 Arrival:39 Service:5
+ ID:31 Arrival:39 Service:5
+ ID:9 Arrival:39 Service:2
+
+Timp curent: 1
+ ID:26 Arrival:2 Service:1
+ ID:30 Arrival:2 Service:5
+ ID:37 Arrival:4 Service:1
+ ID:32 Arrival:5 Service:6
+ ID:33 Arrival:6 Service:1
+ ID:27 Arrival:7 Service:4
+ ID:12 Arrival:7 Service:1
+ ID:4 Arrival:10 Service:6
+ ID:8 Arrival:10 Service:5
+ ID:50 Arrival:10 Service:1
+ ID:50 Arrival:11 Service:4
+ ID:2 Arrival:12 Service:4
+ ID:7 Arrival:12 Service:1
+ ID:49 Arrival:13 Service:2
+ ID:17 Arrival:13 Service:1
+ ID:47 Arrival:14 Service:1
+ ID:1 Arrival:14 Service:5
+ ID:6 Arrival:14 Service:4
+ ID:38 Arrival:14 Service:6
+ ID:23 Arrival:14 Service:2
+ ID:43 Arrival:14 Service:1
+ ID:13 Arrival:15 Service:4
+ ID:11 Arrival:15 Service:4
+ ID:28 Arrival:17 Service:2
+ ID:39 Arrival:17 Service:2
+ ID:10 Arrival:18 Service:6
+ ID:3 Arrival:20 Service:6
+ ID:21 Arrival:20 Service:6
+ ID:25 Arrival:21 Service:6
+ ID:42 Arrival:21 Service:2
+ ID:48 Arrival:21 Service:5
+ ID:17 Arrival:22 Service:4
+ ID:45 Arrival:22 Service:2
+ ID:1 Arrival:22 Service:1
+ ID:44 Arrival:24 Service:1
+ ID:40 Arrival:25 Service:4
+ ID:37 Arrival:26 Service:2
+ ID:16 Arrival:29 Service:4
+ ID:19 Arrival:29 Service:3
+ ID:27 Arrival:29 Service:5
+ ID:20 Arrival:31 Service:4
+ ID:47 Arrival:31 Service:2
+ ID:14 Arrival:32 Service:3
+ ID:41 Arrival:33 Service:3
+ ID:3 Arrival:35 Service:5
+ ID:24 Arrival:37 Service:4
+ ID:46 Arrival:37 Service:2
+ ID:22 Arrival:39 Service:5
+ ID:31 Arrival:39 Service:5
+ ID:9 Arrival:39 Service:2
+
+Timp curent: 2
+Queue 1:(26 2)   
+Queue 2:
+Queue 3:
+Queue 4:
+Queue 5:
+Queue 6:
+Queue 7:
+Queue 8:
+ ID:30 Arrival:2 Service:5
+Queue 1:(26 2)   (30 2)   
+Queue 2:
+Queue 3:
+Queue 4:
+Queue 5:
+Queue 6:
+Queue 7:
+Queue 8:
+ ID:32 Arrival:5 Service:6
+ ID:33 Arrival:6 Service:1
+ ID:27 Arrival:7 Service:4
+ ID:12 Arrival:7 Service:1
+ ID:4 Arrival:10 Service:6
+ ID:8 Arrival:10 Service:5
+ ID:50 Arrival:10 Service:1
+ ID:50 Arrival:11 Service:4
+ ID:2 Arrival:12 Service:4
+ ID:7 Arrival:12 Service:1
+ ID:49 Arrival:13 Service:2
+ ID:17 Arrival:13 Service:1
+ ID:47 Arrival:14 Service:1
+ ID:1 Arrival:14 Service:5
+ ID:6 Arrival:14 Service:4
+ ID:38 Arrival:14 Service:6
+ ID:23 Arrival:14 Service:2
+ ID:43 Arrival:14 Service:1
+ ID:13 Arrival:15 Service:4
+ ID:11 Arrival:15 Service:4
+ ID:28 Arrival:17 Service:2
+ ID:39 Arrival:17 Service:2
+ ID:10 Arrival:18 Service:6
+ ID:3 Arrival:20 Service:6
+ ID:21 Arrival:20 Service:6
+ ID:25 Arrival:21 Service:6
+ ID:42 Arrival:21 Service:2
+ ID:48 Arrival:21 Service:5
+ ID:17 Arrival:22 Service:4
+ ID:45 Arrival:22 Service:2
+ ID:1 Arrival:22 Service:1
+ ID:44 Arrival:24 Service:1
+ ID:40 Arrival:25 Service:4
+ ID:37 Arrival:26 Service:2
+ ID:16 Arrival:29 Service:4
+ ID:19 Arrival:29 Service:3
+ ID:27 Arrival:29 Service:5
+ ID:20 Arrival:31 Service:4
+ ID:47 Arrival:31 Service:2
+ ID:14 Arrival:32 Service:3
+ ID:41 Arrival:33 Service:3
+ ID:3 Arrival:35 Service:5
+ ID:24 Arrival:37 Service:4
+ ID:46 Arrival:37 Service:2
+ ID:22 Arrival:39 Service:5
+ ID:31 Arrival:39 Service:5
+ ID:9 Arrival:39 Service:2
+
+Timp curent: 3
+ ID:37 Arrival:4 Service:1
+ ID:32 Arrival:5 Service:6
+ ID:33 Arrival:6 Service:1
+ ID:27 Arrival:7 Service:4
+ ID:12 Arrival:7 Service:1
+ ID:4 Arrival:10 Service:6
+ ID:8 Arrival:10 Service:5
+ ID:50 Arrival:10 Service:1
+ ID:50 Arrival:11 Service:4
+ ID:2 Arrival:12 Service:4
+ ID:7 Arrival:12 Service:1
+ ID:49 Arrival:13 Service:2
+ ID:17 Arrival:13 Service:1
+ ID:47 Arrival:14 Service:1
+ ID:1 Arrival:14 Service:5
+ ID:6 Arrival:14 Service:4
+ ID:38 Arrival:14 Service:6
+ ID:23 Arrival:14 Service:2
+ ID:43 Arrival:14 Service:1
+ ID:13 Arrival:15 Service:4
+ ID:11 Arrival:15 Service:4
+ ID:28 Arrival:17 Service:2
+ ID:39 Arrival:17 Service:2
+ ID:10 Arrival:18 Service:6
+ ID:3 Arrival:20 Service:6
+ ID:21 Arrival:20 Service:6
+ ID:25 Arrival:21 Service:6
+ ID:42 Arrival:21 Service:2
+ ID:48 Arrival:21 Service:5
+ ID:17 Arrival:22 Service:4
+ ID:45 Arrival:22 Service:2
+ ID:1 Arrival:22 Service:1
+ ID:44 Arrival:24 Service:1
+ ID:40 Arrival:25 Service:4
+ ID:37 Arrival:26 Service:2
+ ID:16 Arrival:29 Service:4
+ ID:19 Arrival:29 Service:3
+ ID:27 Arrival:29 Service:5
+ ID:20 Arrival:31 Service:4
+ ID:47 Arrival:31 Service:2
+ ID:14 Arrival:32 Service:3
+ ID:41 Arrival:33 Service:3
+ ID:3 Arrival:35 Service:5
+ ID:24 Arrival:37 Service:4
+ ID:46 Arrival:37 Service:2
+ ID:22 Arrival:39 Service:5
+ ID:31 Arrival:39 Service:5
+ ID:9 Arrival:39 Service:2
+
+Timp curent: 4
+Queue 1:(26 2)   (30 2)   
+Queue 2:(37 4)   
+Queue 3:
+Queue 4:
+Queue 5:
+Queue 6:
+Queue 7:
+Queue 8:
+ ID:32 Arrival:5 Service:6
+ ID:33 Arrival:6 Service:1
+ ID:27 Arrival:7 Service:4
+ ID:12 Arrival:7 Service:1
+ ID:4 Arrival:10 Service:6
+ ID:8 Arrival:10 Service:5
+ ID:50 Arrival:10 Service:1
+ ID:50 Arrival:11 Service:4
+ ID:2 Arrival:12 Service:4
+ ID:7 Arrival:12 Service:1
+ ID:49 Arrival:13 Service:2
+ ID:17 Arrival:13 Service:1
+ ID:47 Arrival:14 Service:1
+ ID:1 Arrival:14 Service:5
+ ID:6 Arrival:14 Service:4
+ ID:38 Arrival:14 Service:6
+ ID:23 Arrival:14 Service:2
+ ID:43 Arrival:14 Service:1
+ ID:13 Arrival:15 Service:4
+ ID:11 Arrival:15 Service:4
+ ID:28 Arrival:17 Service:2
+ ID:39 Arrival:17 Service:2
+ ID:10 Arrival:18 Service:6
+ ID:3 Arrival:20 Service:6
+ ID:21 Arrival:20 Service:6
+ ID:25 Arrival:21 Service:6
+ ID:42 Arrival:21 Service:2
+ ID:48 Arrival:21 Service:5
+ ID:17 Arrival:22 Service:4
+ ID:45 Arrival:22 Service:2
+ ID:1 Arrival:22 Service:1
+ ID:44 Arrival:24 Service:1
+ ID:40 Arrival:25 Service:4
+ ID:37 Arrival:26 Service:2
+ ID:16 Arrival:29 Service:4
+ ID:19 Arrival:29 Service:3
+ ID:27 Arrival:29 Service:5
+ ID:20 Arrival:31 Service:4
+ ID:47 Arrival:31 Service:2
+ ID:14 Arrival:32 Service:3
+ ID:41 Arrival:33 Service:3
+ ID:3 Arrival:35 Service:5
+ ID:24 Arrival:37 Service:4
+ ID:46 Arrival:37 Service:2
+ ID:22 Arrival:39 Service:5
+ ID:31 Arrival:39 Service:5
+ ID:9 Arrival:39 Service:2
+
+Timp curent: 5
+Queue 1:(26 2)   (30 2)   
+Queue 2:(37 4)   (32 5)   
+Queue 3:
+Queue 4:
+Queue 5:
+Queue 6:
+Queue 7:
+Queue 8:
+ ID:33 Arrival:6 Service:1
+ ID:27 Arrival:7 Service:4
+ ID:12 Arrival:7 Service:1
+ ID:4 Arrival:10 Service:6
+ ID:8 Arrival:10 Service:5
+ ID:50 Arrival:10 Service:1
+ ID:50 Arrival:11 Service:4
+ ID:2 Arrival:12 Service:4
+ ID:7 Arrival:12 Service:1
+ ID:49 Arrival:13 Service:2
+ ID:17 Arrival:13 Service:1
+ ID:47 Arrival:14 Service:1
+ ID:1 Arrival:14 Service:5
+ ID:6 Arrival:14 Service:4
+ ID:38 Arrival:14 Service:6
+ ID:23 Arrival:14 Service:2
+ ID:43 Arrival:14 Service:1
+ ID:13 Arrival:15 Service:4
+ ID:11 Arrival:15 Service:4
+ ID:28 Arrival:17 Service:2
+ ID:39 Arrival:17 Service:2
+ ID:10 Arrival:18 Service:6
+ ID:3 Arrival:20 Service:6
+ ID:21 Arrival:20 Service:6
+ ID:25 Arrival:21 Service:6
+ ID:42 Arrival:21 Service:2
+ ID:48 Arrival:21 Service:5
+ ID:17 Arrival:22 Service:4
+ ID:45 Arrival:22 Service:2
+ ID:1 Arrival:22 Service:1
+ ID:44 Arrival:24 Service:1
+ ID:40 Arrival:25 Service:4
+ ID:37 Arrival:26 Service:2
+ ID:16 Arrival:29 Service:4
+ ID:19 Arrival:29 Service:3
+ ID:27 Arrival:29 Servi

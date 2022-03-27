@@ -23,11 +23,14 @@ public class ConcreteStrategyTime implements Strategy {
         }
         int i = 1;
         for(Server s:servers) {
+            f.write("Queue " + i+ ":");
             for (Client p : s.getClienti()) {
-                f.write("Queue: " + i + " " + p.getId()+ " "+p.gettArrival()+"\n");
-                t.t.append("Queue: " + i + " " + p.getId()+ " "+p.gettArrival()+"\n");
+                f.write("(" + p.getId()+ " "+p.gettArrival()+"), ");
+                t.t.append("(" + p.getId()+ " "+p.gettArrival()+"), ");
 
             }
+            f.write("\n");
+            t.t.append("\n");
             i++;
         }
     }

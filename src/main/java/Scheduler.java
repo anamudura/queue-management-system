@@ -38,13 +38,17 @@ public class Scheduler {
     public void dispatchClient(Client c, FileWriter f,RTSim t) throws IOException, InterruptedException {
         strategy.addClient(servers,c,f,t);
     }
-    public float ComputeAverage(List<Server> servers)
+    public float ComputeAveragePeak(List<Server> servers)
     {
-        float sum = 0;
-        for(Server s: servers)
-            sum = sum + s.getWaitingTime();
-        sum = sum / servers.size();
-        return sum;
+        float su=0,sum;
+        for(Server s: servers) {
+            sum = 0;
+            for (Client p : s.getClienti())
+                sum = p.gettService() + sum;
+            sum = sum / s.getClienti().size();
+            su = su + sum;
+        }
+        return su;
 
     }
 
