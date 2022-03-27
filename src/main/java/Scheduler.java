@@ -1,5 +1,8 @@
-import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 
 public class Scheduler {
     private List<Server> servers;
@@ -12,10 +15,14 @@ public class Scheduler {
     private int MaxClientsperServer;
     private Strategy strategy;
 
-    public Scheduler(int MaxServers, int MaxClientsperServer) {
-        servers = new ArrayList<Server>();
+    public Scheduler(int MaxServers, int MaxClientsperServer,List<Server> servers) {
+        this.servers = servers;
+        this.MaxClientsperServer = MaxClientsperServer;
+        this.MaxServers = MaxServers;
         for (int i = 1; i < MaxServers; i++) {
-            Server s = new Server(MaxClientsperServer);
+            BlockingQueue<Client> clienti = new ArrayBlockingQueue<Client>(MaxClientsperServer);
+            Server s = new Server(MaxClientsperServer,clienti);
+            servers.add(s);
             Thread t = new Thread(s);
             t.start();
 
@@ -28,10 +35,17 @@ public class Scheduler {
         if(policy == SelectionPolicy.SHORTEST_TIME)
             strategy = new ConcreteStrategyTime();
     }
-    public void dispatchClient(Client c)
+    public void dispatchClient(Client c, FileWriter f,RTSim t) throws IOException, InterruptedException {
+        strategy.addClient(servers,c,f,t);
+    }
+    public float ComputeAverage(List<Server> servers)
     {
-        //System.out.println("In queue:" + c.getId()+" "+c.gettArrival()+" "+ c.gettService());
-        strategy.addClient(servers,c);
+        float sum = 0;
+        for(Server s: servers)
+            sum = sum + s.getWaitingTime();
+        sum = sum / servers.size();
+        return sum;
+
     }
 
 }

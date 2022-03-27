@@ -1,12 +1,19 @@
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 public class Server implements Runnable {
     private BlockingQueue<Client> clienti;
-    private Integer waitingTime;
+    private int waitingTime;
     private int nrMaxClients;
 
-    public Integer getWaitingTime() {
+    public int getNrMaxClients() {
+        return nrMaxClients;
+    }
+
+    public void setNrMaxClients(int nrMaxClients) {
+        this.nrMaxClients = nrMaxClients;
+    }
+
+    public int getWaitingTime() {
         return waitingTime;
     }
 
@@ -14,29 +21,25 @@ public class Server implements Runnable {
         this.waitingTime = waitingTime;
     }
 
-    public Server(int nrMaxClients) {
+    public Server(int nrMaxClients,BlockingQueue<Client> clienti) {
         this.nrMaxClients = nrMaxClients;
-        clienti = new ArrayBlockingQueue<Client>(nrMaxClients);
-        waitingTime = 0;
+        this.clienti = clienti;
+        this.waitingTime = 0;
 
     }
 
-    public void addClient(Client c) {
-        clienti.add(c);
-        waitingTime++;
+    public void  addClient(Client c) throws InterruptedException {
+
+        clienti.put(c);
+        waitingTime = waitingTime + c.gettService();
+        setWaitingTime(waitingTime);
     }
 
     @Override
     public void run() {
         while (true) {
-            try {
-                Client c = clienti.take();
-                Thread.sleep(c.gettService());
-                waitingTime--;
-                System.out.println("WAITING!: "+ waitingTime);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
+            Thread.interrupted();
         }
 
     }

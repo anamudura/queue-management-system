@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -6,7 +8,7 @@ import java.util.List;
 public class SimulationManager implements Runnable {
 
     private Scheduler scheduler;
-
+    FileWriter f = new FileWriter("D:/LabPT/PT2022_30221_Mudura_Ana_assigment_2/src/main/java/LOG.txt");
 
     private List<Client> generatedClients = new ArrayList<>();
     private int simulationTime;
@@ -16,6 +18,35 @@ public class SimulationManager implements Runnable {
     private int minArrivalTime;
     private int nrofServers;
     private int nrofClients;
+    private int maxClients;
+    private JFrame window;
+    private RTSim simul;
+    private List<Server> s;
+
+    public List<Server> getS() {
+        return s;
+    }
+
+    public void setS(List<Server> s) {
+        this.s = s;
+    }
+
+    public RTSim getSimul() {
+        window = new JFrame("RTSIM");
+        simul = new RTSim(600, 600);
+        window.setContentPane(simul);
+        window.pack();
+        window.setResizable(true);
+        window.setLocation(150, 100);
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setVisible(true);
+        return simul;
+    }
+
+    public void setSimul(RTSim simul) {
+        this.simul = simul;
+    }
+
     private SelectionPolicy selectionPolicy;
 
     public SelectionPolicy getSelectionPolicy() {
@@ -26,9 +57,17 @@ public class SimulationManager implements Runnable {
         this.selectionPolicy = selectionPolicy;
     }
 
-    public Scheduler getScheduler(int nrofServers, int nrofClients) {
-        scheduler = new Scheduler(nrofServers,nrofClients);
+    public Scheduler getScheduler(int nrofServers, int nrofClients, List<Server> s) {
+        scheduler = new Scheduler(nrofServers, nrofClients, s);
         return scheduler;
+    }
+
+    public int getMaxClients() {
+        return maxClients;
+    }
+
+    public void setMaxClients(int maxClients) {
+        this.maxClients = maxClients;
     }
 
     public void setScheduler(Scheduler scheduler) {
@@ -96,11 +135,12 @@ public class SimulationManager implements Runnable {
         return nrofClients;
     }
 
-    public SimulationManager() {
+    public SimulationManager() throws IOException {
         this.generatedClients = generatedClients;
+        this.simul = getSimul();
     }
 
-    public void generateClients(int nrofClients,int minArrivalTime,int maxArrivalTime,int minServiceTime,int maxServiceTime,List<Client> generatedClients) {
+    public void generateClients(int nrofClients, int minArrivalTime, int maxArrivalTime, int minServiceTime, int maxServiceTime, List<Client> generatedClients) {
         for (int i = 0; i < nrofClients; i++) {
             Client c = new Client();
             c.settService(c.GenerateService(minServiceTime, maxServiceTime));
@@ -126,43 +166,78 @@ public class SimulationManager implements Runnable {
         while (currentTime < simulationTime) {
             if (generatedClients.size() == 0)
                 break;
-            System.out.println("Waiting clients");
-            for (int i = 0; i < generatedClients.size(); i++) {
+            simul.t.setText("");
+            System.out.println("Timp: " + currentTime);
+            simul.t.append("Timp curent: " + currentTime + "\n");
+            try {
+                f.write("\nTimp curent: " + currentTime + "\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            int i = 0;
+            while (i < generatedClients.size()) {
                 if (generatedClients.get(i).gettArrival() == currentTime) {
-                    scheduler.dispatchClient(generatedClients.get(i));
+                    try {
+                        scheduler.dispatchClient(generatedClients.get(i), f, simul);
+                    } catch (IOException | InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     generatedClients.remove(generatedClients.get(i));
                 }
 
-                if (i < generatedClients.size()){
-                    System.out.println("Timp curent: " + currentTime + " ID:" + generatedClients.get(i).getId() + " Arrival:" + generatedClients.get(i).gettArrival()
-                            + " Service:" + generatedClients.get(i).gettService());
+                if (i < generatedClients.size()) {
+                    simul.t.append(" ID:" + generatedClients.get(i).getId() + " Arrival:" + generatedClients.get(i).gettArrival()
+                            + " Service:" + generatedClients.get(i).gettService() + "\n");
+                    try {
+                        f.write(" ID:" + generatedClients.get(i).getId() + " Arrival:" + generatedClients.get(i).gettArrival()
+                                + " Service:" + generatedClients.get(i).gettService() + "\n");
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
 
-            }
+                }
+                if(i<generatedClients.size())
+                    if (generatedClients.get(i).gettArrival() == currentTime) {
+                        try {
+                            scheduler.dispatchClient(generatedClients.get(i), f, simul);
+                        } catch (IOException | InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        generatedClients.remove(generatedClients.get(i));
+                    }
+                if(i>=generatedClients.size())
+                {
+                    float average = scheduler.ComputeAverage(s);
+                    simul.t.append("Average waiting time:" + average + "\n");
+                    try {
+                        f.write("Average waiting time:" + average + "\n");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                i++;
 
+            }
             currentTime++;
             try {
-                Thread.sleep(100);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 //
-        }
 
+
+        }
+        try {
+            f.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
     public static void main(String[] args) {
-        JFrame window = new JFrame("SIMULATION MANAGER");
-        UI frame = new UI(500, 500);
-        window.setContentPane(frame);
-        window.pack();
-        window.setResizable(true);
-        window.setLocation(150, 100);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setVisible(true);
-        Control p = new Control(frame);
-
+        Control p = new Control();
 
 
     }

@@ -3,8 +3,8 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class UI extends JPanel {
-    JTextField t1, t2, t3, t4, t5, t6, t7;
-    JLabel l1, l2, l3, l4, l5, l6, l7;
+    JTextField t1, t2, t3, t4, t5, t6, t7 ,t8;
+    JLabel l1, l2, l3, l4, l5, l6, l7 , l8;
     JButton b = new JButton("START");
     JComboBox<String> operator;
     public UI(int width, int height) {
@@ -21,6 +21,7 @@ public class UI extends JPanel {
         t5 = new JTextField();
         t6 = new JTextField();
         t7 = new JTextField();
+        t8 = new JTextField();
 
         l1 = new JLabel("Introduce the number of clients");
         l2 = new JLabel("Introduce the number of queues");
@@ -29,6 +30,7 @@ public class UI extends JPanel {
         l5 = new JLabel("Maximum arrival time");
         l6 = new JLabel("Minimul service time");
         l7 = new JLabel("Maximum service time");
+        l8 = new JLabel("Maximum nr of clients / queue");
 
         operator.addItem("SHORTEST_TIME");
         operator.addItem("SHORTEST_QUEUE");
@@ -40,6 +42,7 @@ public class UI extends JPanel {
         add(t5);
         add(t6);
         add(t7);
+        add(t8);
 
         add(l1);
         add(l2);
@@ -48,6 +51,7 @@ public class UI extends JPanel {
         add(l5);
         add(l6);
         add(l7);
+        add(l8);
         add(b);
         add(operator);
 
@@ -65,8 +69,10 @@ public class UI extends JPanel {
         t6.setBounds(15, height - 150, width - 400, 23);
         l7.setBounds(15, height - 120, width - 200, 23);
         t7.setBounds(15, height - 90, width - 400, 23);
-        b.setBounds(15, height - 60, width - 200, 23);
-        operator.setBounds(15, height - 30, width - 200, 23);
+        t8.setBounds(300, height - 390, width - 400, 23);
+        l8.setBounds(300, height - 420, width - 200, 23);
+        b.setBounds(15, height - 30, width - 400, 23);
+        operator.setBounds(15, height - 60, width - 400, 23);
 
 
     }
