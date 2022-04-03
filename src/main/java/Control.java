@@ -66,7 +66,7 @@ public class Control{
                 t.start();
 
                 window.dispose();
-                sim.setSimul(sim.getSimul());
+                //sim.setSimul(sim.getSimul());
 
 
 

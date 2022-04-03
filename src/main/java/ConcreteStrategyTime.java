@@ -9,18 +9,17 @@ public class ConcreteStrategyTime implements Strategy {
         for (Server s : servers)
             if (s.getWaitingTime() < min)
                 min = s.getWaitingTime();
-        for(int i=0;i<servers.size();i++)
-        {
-            if(servers.get(i).getWaitingTime() == min) {
-                servers.get(i).getClienti().put(c);
-                break;
-            }
-            else
-            if(i<servers.size()-1) {
-                servers.get(i + 1).getClienti().put(c);
-                break;
-            }
-        }
+      for(Server s: servers)
+          if(s.getWaitingTime()==min) {
+              s.addClient(c);
+              break;
+          }
+//            else
+//            if(i<servers.size()-1) {
+//                servers.get(i + 1).getClienti().put(c);
+//                break;
+//            }
+//        }
         int i = 1;
         for(Server s:servers) {
             f.write("Queue " + i+ ":");

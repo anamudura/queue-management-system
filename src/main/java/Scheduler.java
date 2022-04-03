@@ -20,7 +20,7 @@ public class Scheduler {
         this.MaxClientsperServer = MaxClientsperServer;
         this.MaxServers = MaxServers;
         for (int i = 1; i < MaxServers; i++) {
-            BlockingQueue<Client> clienti = new ArrayBlockingQueue<Client>(MaxClientsperServer);
+            BlockingQueue<Client> clienti =  new ArrayBlockingQueue<Client>(MaxClientsperServer);;
             Server s = new Server(MaxClientsperServer,clienti);
             servers.add(s);
             Thread t = new Thread(s);
@@ -36,9 +36,10 @@ public class Scheduler {
             strategy = new ConcreteStrategyTime();
     }
     public void dispatchClient(Client c, FileWriter f,RTSim t) throws IOException, InterruptedException {
+        System.out.println("dispatch " +c);
         strategy.addClient(servers,c,f,t);
     }
-    public float ComputeAveragePeak(List<Server> servers)
+    public float ComputeAverageServiceTime(List<Server> servers)
     {
         float su=0,sum;
         for(Server s: servers) {
@@ -50,6 +51,15 @@ public class Scheduler {
         }
         return su;
 
+    }
+    public float ComputeAverageWaitingTime(List<Server> servers)
+    {
+        float avg=0;
+        for(Server s: servers) {
+            avg = avg + s.getWaitingTime();
+        }
+        avg = avg + servers.size();
+        return avg;
     }
 
 }

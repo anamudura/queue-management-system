@@ -4,36 +4,39 @@ import java.util.List;
 
 public class ConcreteStrategyQueue implements Strategy {
     @Override
-    public void addClient(List<Server> servers, Client c,FileWriter f,RTSim t) throws IOException, InterruptedException {
-
-        for(int i=0;i<servers.size();i++)
-        {
-            if(servers.get(i).getClienti().size()<servers.get(i).getNrMaxClients()) {
-                servers.get(i).getClienti().put(c);
+    public void addClient(List<Server> servers, Client c, FileWriter f, RTSim t) throws IOException, InterruptedException {
+        int min = Integer.MAX_VALUE;
+        for (Server s : servers)
+            if (s.getClienti().size() < min)
+                min = s.getClienti().size();
+        for (Server s : servers)
+            if (s.getClienti().size() == min) {
+                s.addClient(c);
                 break;
             }
-            else
-                if(i<servers.size()-1) {
-                    servers.get(i + 1).getClienti().put(c);
-                    break;
-                }
-        }
+
+
         int i = 1;
-        for(Server s:servers) {
-            f.write("Queue " + i+ ":");
-            t.t.append("Queue " + i+ ":");
+        for (Server s : servers) {
+            f.write("Queue " + i + ":");
+            t.t.append("Queue " + i + ":");
+            if(s.getClienti().size() == 0)
+            {
+                f.write("closed");
+                t.t.append("closed");
+            }
             for (Client p : s.getClienti()) {
-                f.write("(" + p.getId()+ " "+p.gettArrival()+")   ");
-                t.t.append("(" + p.getId()+ " "+p.gettArrival()+")   ");
 
-
+                f.write("(" + p.getId() + " " + p.gettArrival() +" service:"+p.gettService()+ ")   ");
+                t.t.append("(" + p.getId() + " " + p.gettArrival() + ")   ");
             }
             f.write("\n");
             t.t.append("\n");
             i++;
         }
 
+        }
+
 
     }
-}
 

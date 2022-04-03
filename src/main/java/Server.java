@@ -28,9 +28,9 @@ public class Server implements Runnable {
 
     }
 
-    public void  addClient(Client c) throws InterruptedException {
-
-        clienti.put(c);
+    public void addClient(Client c)  {
+        clienti.add(c);
+        System.out.println(clienti.size());
         waitingTime = waitingTime + c.gettService();
         setWaitingTime(waitingTime);
     }
@@ -38,20 +38,32 @@ public class Server implements Runnable {
     @Override
     public void run() {
         while (true) {
-//            Client c = null;
-//            try {
-//                c = clienti.take();
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            try {
-//                Thread.sleep(c.gettService()*1000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            waitingTime--;
+            if(waitingTime > 0)
+                waitingTime--;
 
-            Thread.interrupted();
+                for(Client c: clienti)
+                {
+                    if(c.gettService() == 1)
+                    {
+                        try {
+                            clienti.take();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    else
+                    {
+                        c.settService(c.gettService()-1);
+                        System.out.println("AM SCAZUT TIMPUL");
+                    }
+                }
+
+            try {
+                Thread.sleep( 1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         }
 
     }

@@ -177,6 +177,7 @@ public class SimulationManager implements Runnable {
             while (i < generatedClients.size()) {
                 if (generatedClients.get(i).gettArrival() == currentTime) {
                     try {
+                        System.out.println("main put" + generatedClients.get(i));
                         scheduler.dispatchClient(generatedClients.get(i), f, simul);
                     } catch (IOException | InterruptedException e) {
                         e.printStackTrace();
@@ -185,7 +186,7 @@ public class SimulationManager implements Runnable {
                 }
 
                 if (i < generatedClients.size()) {
-                    simul.t.append(" ID:" + generatedClients.get(i).getId() + " Arrival:" + generatedClients.get(i).gettArrival()
+                    simul.t.append(" ID: " + generatedClients.get(i).getId() + " Arrival:" + generatedClients.get(i).gettArrival()
                             + " Service:" + generatedClients.get(i).gettService() + "\n");
                     try {
                         f.write(" ID:" + generatedClients.get(i).getId() + " Arrival:" + generatedClients.get(i).gettArrival()
@@ -195,21 +196,24 @@ public class SimulationManager implements Runnable {
                     }
 
                 }
-                if(i<generatedClients.size())
+                if (i < generatedClients.size())
                     if (generatedClients.get(i).gettArrival() == currentTime) {
                         try {
+                            System.out.println("main put" + generatedClients.get(i));
                             scheduler.dispatchClient(generatedClients.get(i), f, simul);
                         } catch (IOException | InterruptedException e) {
                             e.printStackTrace();
                         }
                         generatedClients.remove(generatedClients.get(i));
                     }
-                if(i>=generatedClients.size())
-                {
-                    float average = scheduler.ComputeAveragePeak(s);
+                if (i >= generatedClients.size()) {
+                    float average = scheduler.ComputeAverageServiceTime(s);
+                    float waiting =scheduler.ComputeAverageWaitingTime(s);
+                    simul.t.append("Average waiting time:" + waiting);
                     simul.t.append("Average service time:" + average + "\n");
                     try {
-                        f.write("Average service time:" + average + "\n");
+                        f.write("\nAverage service time:" + average);
+                        f.write("\nAverage waiting time:" + waiting + "\n");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -219,14 +223,13 @@ public class SimulationManager implements Runnable {
             }
             currentTime++;
             try {
-                Thread.sleep(10);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             simul.t.setText("");
-
-
         }
+
         try {
             f.close();
         } catch (IOException e) {
