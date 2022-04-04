@@ -163,6 +163,8 @@ public class SimulationManager implements Runnable {
     @Override
     public void run() {
         int currentTime = 0;
+        int maxc = 0;
+        int ct = 0;
         while (currentTime < simulationTime) {
             if (generatedClients.size() == 0)
                 break;
@@ -179,6 +181,10 @@ public class SimulationManager implements Runnable {
                     try {
                         System.out.println("main put" + generatedClients.get(i));
                         scheduler.dispatchClient(generatedClients.get(i), f, simul);
+                        if (scheduler.ComputePeakTime(s) > maxc) {
+                            maxc = scheduler.ComputePeakTime(s);
+                            ct = currentTime;
+                        }
                     } catch (IOException | InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -208,11 +214,13 @@ public class SimulationManager implements Runnable {
                     }
                 if (i >= generatedClients.size()) {
                     float average = scheduler.ComputeAverageServiceTime(s);
-                    float waiting =scheduler.ComputeAverageWaitingTime(s);
+                    float waiting = scheduler.ComputeAverageWaitingTime(s);
                     simul.t.append("Average waiting time:" + waiting);
+                    simul.t.append("\nPeak time:" + ct + "\n");
                     simul.t.append("Average service time:" + average + "\n");
                     try {
                         f.write("\nAverage service time:" + average);
+                        f.write("\nPeak time:" + ct + "\n");
                         f.write("\nAverage waiting time:" + waiting + "\n");
                     } catch (IOException e) {
                         e.printStackTrace();

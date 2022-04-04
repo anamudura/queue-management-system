@@ -61,5 +61,15 @@ public class Scheduler {
         avg = avg + servers.size();
         return avg;
     }
+    public int ComputePeakTime(List<Server> servers)
+    {
+        int sum = 0;
+        for(Server s: servers)
+        {
+            if(!(s.getClienti().isEmpty()))
+                sum = sum + s.getClienti().size();
+        }
+        return sum;
+    }
 
 }
