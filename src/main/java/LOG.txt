@@ -1,0 +1,83 @@
+
+Timp curent: 0
+ ID:2 Arrival:5 Service:2
+ ID:3 Arrival:10 Service:2
+ ID:4 Arrival:12 Service:3
+ ID:4 Arrival:14 Service:2
+
+Timp curent: 1
+ ID:2 Arrival:5 Service:2
+ ID:3 Arrival:10 Service:2
+ ID:4 Arrival:12 Service:3
+ ID:4 Arrival:14 Service:2
+
+Timp curent: 2
+ ID:2 Arrival:5 Service:2
+ ID:3 Arrival:10 Service:2
+ ID:4 Arrival:12 Service:3
+ ID:4 Arrival:14 Service:2
+
+Timp curent: 3
+ ID:2 Arrival:5 Service:2
+ ID:3 Arrival:10 Service:2
+ ID:4 Arrival:12 Service:3
+ ID:4 Arrival:14 Service:2
+
+Timp curent: 4
+ ID:2 Arrival:5 Service:2
+ ID:3 Arrival:10 Service:2
+ ID:4 Arrival:12 Service:3
+ ID:4 Arrival:14 Service:2
+
+Timp curent: 5
+Queue 1:(2 5 service:2)   
+Queue 2:closed
+ ID:3 Arrival:10 Service:2
+ ID:4 Arrival:12 Service:3
+ ID:4 Arrival:14 Service:2
+
+Timp curent: 6
+ ID:3 Arrival:10 Service:2
+ ID:4 Arrival:12 Service:3
+ ID:4 Arrival:14 Service:2
+
+Timp curent: 7
+ ID:3 Arrival:10 Service:2
+ ID:4 Arrival:12 Service:3
+ ID:4 Arrival:14 Service:2
+
+Timp curent: 8
+ ID:3 Arrival:10 Service:2
+ ID:4 Arrival:12 Service:3
+ ID:4 Arrival:14 Service:2
+
+Timp curent: 9
+ ID:3 Arrival:10 Service:2
+ ID:4 Arrival:12 Service:3
+ ID:4 Arrival:14 Service:2
+
+Timp curent: 10
+Queue 1:(2 5 service:1)   
+Queue 2:(3 10 service:2)   
+ ID:4 Arrival:12 Service:3
+ ID:4 Arrival:14 Service:2
+
+Timp curent: 11
+ ID:4 Arrival:12 Service:3
+ ID:4 Arrival:14 Service:2
+
+Timp curent: 12
+Queue 1:(2 5 service:1)   (4 12 service:3)   
+Queue 2:(3 10 service:2)   
+ ID:4 Arrival:14 Service:2
+
+Timp curent: 13
+ ID:4 Arrival:14 Service:2
+
+Timp curent: 14
+Queue 1:(2 5 service:1)   (4 12 service:3)   
+Queue 2:(3 10 service:2)   (4 14 service:2)   
+
+Average service time:4.0
+Peak time:14
+Average waiting time:10.0
